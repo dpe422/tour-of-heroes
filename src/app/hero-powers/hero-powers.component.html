@@ -1,0 +1,15 @@
+<h2>Superpowers</h2>
+
+<form [formGroup]="superpowersForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="powerList">
+    <div *ngFor="let power of powerList().controls; let i = index" class="form-group">
+      <label>
+        Power {{i + 1}}:
+        <input type="text" [formControlName]="i">
+      </label>
+      <button (click)="removePower(i)">Remove</button>
+    </div>
+  </div>
+  <button type="button" (click)="addPower()">Add Power</button>
+  <button type="submit">Submit</button>
+</form>
